@@ -1,0 +1,36 @@
+{
+  "name": "node-mailer",
+  "version": "1.0.0",
+  "description": "NodeJS and Express based API service to send emails using the Gmail REST API",
+  "main": "index.js",
+  "scripts": {
+    "start": "node server",
+    "dev": "nodemon server"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/RajKotadia/node-mailer.git"
+  },
+  "keywords": [
+    "nodejs",
+    "expressjs",
+    "gmail-api",
+    "oauth2"
+  ],
+  "author": "Raj Kotadia",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/RajKotadia/node-mailer/issues"
+  },
+  "homepage": "https://github.com/RajKotadia/node-mailer#readme",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "dotenv": "^8.2.0",
+    "express": "^4.17.1",
+    "helmet": "^4.1.1",
+    "morgan": "^1.10.0"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.6"
+  }
+}
