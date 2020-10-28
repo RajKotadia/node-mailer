@@ -1,7 +1,7 @@
 const fs = require("fs").promises;
 const path = require("path");
 
-const dbPath = path.resolve("../", "../", "database");
+const dbPath = path.resolve(__dirname, "../", "../", "database");
 
 // get the list of users from json file
 const getUsers = async () => {
@@ -9,8 +9,7 @@ const getUsers = async () => {
 		const jsonString = await fs.readFile(`${dbPath}/users.json`, "utf8");
 		return JSON.parse(jsonString);
 	} catch (err) {
-		// if the file does not exist;
-		// create ta new file with an empty list of users
+		// if file does not exist, create a new file with an empty list of users
 		if (err.code === "ENOENT") {
 			await saveUsers([]);
 			return [];
