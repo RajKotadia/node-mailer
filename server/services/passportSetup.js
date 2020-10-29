@@ -45,6 +45,7 @@ passport.use(
 						googleId: profile.id,
 						accessToken,
 						refreshToken,
+						tokenCreatedAt: Date.now(),
 					};
 					users.push(newUser);
 					await saveUsers(users);
