@@ -6,4 +6,5 @@ module.exports = {
 	googleClientSecret: process.env.GOOGLE_CLIENT_SECRET,
 	googleApiKey: process.env.GOOGLE_API_KEY,
 	cookieKey: process.env.COOKIE_KEY,
+	clientURL: "http://localhost:5501",
 };

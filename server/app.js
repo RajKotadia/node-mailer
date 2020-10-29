@@ -28,7 +28,12 @@ app.use(
 app.use(passport.initialize());
 app.use(passport.session());
 
-app.use(cors());
+app.use(
+	cors({
+		origin: "http://localhost:5501",
+		credentials: true,
+	})
+);
 app.use(morgan("tiny"));
 app.use(helmet());
 

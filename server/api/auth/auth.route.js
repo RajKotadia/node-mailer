@@ -1,11 +1,13 @@
 const express = require("express");
 const passport = require("passport");
+const { clientURL } = require("../../config");
 const { authCheck } = require("../../middlewares/authMiddleware");
 const { getUserInfo } = require("./auth.controller");
 
 const router = express.Router();
 
-// to authenticate and get user authorization for mentioned scopes from Google via Oauth2
+// @route	GET /api/auth/google
+// @desc 	to authenticate and get user authorization for mentioned scopes from Google via Oauth2
 router.get(
 	"/google",
 	passport.authenticate("google", {
@@ -18,12 +20,22 @@ router.get(
 	})
 );
 
-// the callback route for Google to redirect to
-router.get("/google/callback", passport.authenticate("google"), (req, res) => {
-	res.send("User Authenticated");
-});
+// @route	GET /api/auth/google/callback
+// @desc	the callback route for Google to redirect to
+router.get(
+	"/google/callback",
+	passport.authenticate("google", {
+		failureRedirect: `${clientURL}/?err=true`,
+	}),
+	(req, res) => {
+		// redirects the user to /message route on client to send a new mail
+		res.redirect(`${clientURL}/message.html`);
+	}
+);
 
-// to check whether the user is authenticated
+// @route	GET /api/auth/current_user
+// @desc	to check whether the user is authenticated
+// @access	protected
 router.get("/current_user", authCheck, getUserInfo);
 
 module.exports = router;
