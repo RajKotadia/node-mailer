@@ -1,7 +1,8 @@
 # node-mailer
 NodeJS and Express based API service to send emails using the Gmail REST API
 
-![Node mailer demo](./demo/node-mailer.gif)
+![Node mailer demo](./demo/node-mailer.gif) \
+
 Used a simple HTML-CSS-JS based Client to access the node API.
 
 ## App Flow
